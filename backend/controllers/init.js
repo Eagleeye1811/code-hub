@@ -2,7 +2,7 @@ const fs = require("fs").promises; //fs is file system comes with node, and prom
 const path = require("path");
 
 async function initRepo(){
-    const repoPath = path.resolve(process.cwd(), ".nest");
+    const repoPath = path.resolve(process.cwd(), ".code");
     const commitsPath = path.join(repoPath, "commits");
 
     try{
