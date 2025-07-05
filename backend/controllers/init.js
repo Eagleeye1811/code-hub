@@ -1,9 +1,10 @@
-const fs = require("fs").promises; //fs is file system comes with node, and promises is a utility which helps to create a file 
+const fs = require("fs").promises;  
 const path = require("path");
 
 async function initRepo(){
     const repoPath = path.resolve(process.cwd(), ".code");
     const commitsPath = path.join(repoPath, "commits");
+    console.log(commitsPath);
 
     try{
         await fs.mkdir(repoPath,{recursive: true});

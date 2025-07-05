@@ -18,6 +18,7 @@ yargs(hideBin(process.argv))
         },
         (argv) => {
             addRepo(argv.file);
+            console.log(argv.file);
         }
     )
     .command("commit <message>","Commit the staged files",
@@ -26,7 +27,11 @@ yargs(hideBin(process.argv))
                 describe: "Commit message",
                 type: "string",
             })
-        },commitRepo)
+        },
+        (argv) => {
+            commitRepo(argv.message);
+        }
+    )
     .command("push", "Push commits to s3",{},pushRepo)
     .command("pull", "Pull commits to s3",{},pullRepo)
     .command("revert <commitID>","Revert to a specific commit",
