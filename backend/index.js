@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const http = require("http");
 const {Server} = require("socket.io");
+const mainRouter = require("../backend/routes/main.router");
+const userRouter = require("../backend/routes/user.router");
 dotenv.config();
 
 const yargs = require("yargs");
@@ -67,6 +69,7 @@ function startServer(){
     app.use(bodyParser.json());
     app.use(express.json());
     app.use(cors({origin:'*'}));
+    app.use("/",mainRouter);
 
     const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -84,10 +87,6 @@ function startServer(){
     }
 
     connectDB();
-
-    app.get("/",(req,res) => {
-        res.send("Welcome to our website!!");
-    })
 
     const httpServer = http.createServer(app);
     const io = new Server(httpServer,{
