@@ -75,10 +75,7 @@ function startServer(){
 
     const connectDB = async () => {
         try{
-            const conn = await mongoose.connect(MONGODB_URI, {
-                useNewUrlParser:true,
-                useUnifiedTopology:true,
-            });
+            const conn = await mongoose.connect(MONGODB_URI,{ dbName: "CodeHub"});
             console.log(`MongoDB Connected: ${conn.connection.host}`);
         }catch(err){
             console.error(`MongoDB Connection Error: ${err.message}`);

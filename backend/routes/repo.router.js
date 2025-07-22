@@ -1,9 +1,9 @@
 const express = require("express");
-const {createRespository,getAllRepositories,fetchRepositoryById,fetchRepositoryByName,fetchRepositoriesForCurrentUser,updateRepositoryById,deleteRepositoryById,toggleVisibilityById} = require("../controllers/repoController");
+const {createRepository,getAllRepositories,fetchRepositoryById,fetchRepositoryByName,fetchRepositoriesForCurrentUser,updateRepositoryById,deleteRepositoryById,toggleVisibilityById} = require("../controllers/repoController");
 
 const repoRouter = express.Router();
 
-repoRouter.post("/repo/create", createRespository);
+repoRouter.post("/repo/create", createRepository);
 repoRouter.get("/repo/all", getAllRepositories);
 repoRouter.get("/repo/:id", fetchRepositoryById);
 repoRouter.get("/repo/name/:name", fetchRepositoryByName);

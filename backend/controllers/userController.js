@@ -25,7 +25,7 @@ async function signup(req, res) {
   const { username, password, email } = req.body;
   try {
     await connectClient();
-    const db = client.db("codeHub");
+    const db = client.db("CodeHub");
     const usersCollection = db.collection("users");
 
     const user = await usersCollection.findOne({ username });
@@ -63,7 +63,7 @@ async function login(req, res) {
   const { email, password } = req.body;
   try {
     await connectClient();
-    const db = client.db("codeHub");
+    const db = client.db("CodeHub");
     const usersCollection = db.collection("users");
 
     const user = await usersCollection.findOne({ email });
@@ -89,7 +89,7 @@ async function login(req, res) {
 async function getAllUsers(req, res) {
   try {
     await connectClient();
-    const db = client.db("codeHub");
+    const db = client.db("CodeHub");
     const usersCollection = db.collection("users");
 
     const users = await usersCollection.find({}).toArray();
@@ -105,7 +105,7 @@ async function getUserProfile(req, res) {
 
   try {
     await connectClient();
-    const db = client.db("codeHub");
+    const db = client.db("CodeHub");
     const usersCollection = db.collection("users");
 
     const user = await usersCollection.findOne({
@@ -129,7 +129,7 @@ async function updateUserProfile(req, res) {
 
   try {
     await connectClient();
-    const db = client.db("codeHub");
+    const db = client.db("CodeHub");
     const usersCollection = db.collection("users");
 
     let updateFields = { email };
@@ -162,7 +162,7 @@ async function deleteUserProfile(req, res) {
 
   try {
     await connectClient();
-    const db = client.db("codeHub");
+    const db = client.db("CodeHub");
     const usersCollection = db.collection("users");
 
     const result = await usersCollection.deleteOne({
